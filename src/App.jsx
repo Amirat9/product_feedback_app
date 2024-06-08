@@ -1,18 +1,18 @@
-import Header from './layouts/Header';
-import Sidebar from './layouts/Sidebar';
 import Home from './pages/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='bg-bgPrimary h-screen flex justify-center font-jost'>
-      <div className='container flex gap-[30px] pt-[94px]'>
-        <Sidebar />
-        <div className='w-full'>
-          <Header />
-          <Home />
-        </div>
+    <Router>
+      <div className='container mx-auto'>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 

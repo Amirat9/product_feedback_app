@@ -3,3 +3,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-jost bg-bg-color h-screen text-navy;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply text-2xl font-bold leading-[35px] tracking-[-0.33px];
+  }
+
+  .h2 {
+    @apply text-xl font-bold leading-[29px] tracking-[-0.25px];
+  }
+
+  .h3 {
+    @apply text-lg font-bold leading-[26px] tracking-[-0.25px];
+  }
+
+  .h4 {
+    @apply text-sm font-bold leading-[20px] tracking-[-0.2px];
+  }
+  .body-1 {
+    @apply text-base leading-[23px];
+  }
+
+  .body-2 {
+    @apply text-[15px] leading-[22px];
+  }
+
+  .body-3 {
+    @apply text-[13px] leading-[19px] font-semibold;
+  }
+}
