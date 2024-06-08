@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 const FilterDropdown = () => {
@@ -16,6 +16,9 @@ const FilterDropdown = () => {
   const handleItemClick = (filter) => {
     setFilterSelected(filter.target.innerText);
   };
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [filterSelected]);
   return (
     <Menu>
       <MenuButton
