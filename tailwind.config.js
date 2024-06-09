@@ -29,6 +29,9 @@ export default {
         'hero-mobile':
           "url('./src/assets/suggestions/mobile/background-header.png')",
       },
+      screens: {
+        md: '840px',
+      },
     },
   },
   plugins: [],

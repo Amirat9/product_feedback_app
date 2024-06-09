@@ -1,8 +1,9 @@
 import suggestionsIcon from '../assets/suggestions/icon-suggestions.svg';
 import FilterDropdown from '../components/FilterDropdown';
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
-    <header className='bg-navy flex justify-between items-center px-6 py-2 sm:mt-10 sm:mx-10 sm:rounded-[10px] sm:px-3 sm:justify-normal md:mt-[94px] md:mx-0'>
+    <header className='bg-navy flex justify-between items-center px-6 py-2 sm:mt-10  sm:rounded-[10px] sm:px-3 sm:justify-normal md:mx-0 md:mt-0'>
       <div className='hidden sm:flex sm:items-center'>
         <img
           src={suggestionsIcon}
@@ -13,9 +14,12 @@ const Header = () => {
         </h2>
       </div>
       <FilterDropdown />
-      <button className='bg-purple border-0 text-white px-4 py-[10.5px] rounded-[10px] text-[13px] font-bold hover:bg-purple-hover sm:ml-auto'>
+      <Link
+        to='/new-feedback'
+        className='bg-purple border-0 text-white px-4 py-[10.5px] rounded-[10px] text-[13px] font-bold hover:bg-purple-hover sm:ml-auto'
+      >
         + Add Feedback
-      </button>
+      </Link>
     </header>
   );
 };

@@ -13,7 +13,7 @@ const Home = () => {
       {isOpen && <Modal />}
       <div className='md:w-full'>
         <Header />
-        <main className='mx-6 mt-8 flex flex-col gap-4 sm:mx-10 md:mx-0 md:mt-6'>
+        <main className='mx-6 mt-8 mb-2 flex flex-col gap-4 sm:mx-0 md:mx-0 md:mt-6'>
           {data.productRequests.map((item, index) => {
             const commentsCount = item.comments ? item.comments.length : 0;
             const repliesCount = item.comments

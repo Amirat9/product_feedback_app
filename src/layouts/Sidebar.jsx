@@ -16,7 +16,7 @@ const Sidebar = () => {
     { status: 'Live', count: 1 },
   ];
   return (
-    <aside className='sm:flex sm:gap-[10px] sm:mt-14 sm:mx-10 sm:max-h-[176px] md:flex-col md:mt-[94px] md:mx-0 md:max-w-[255px]'>
+    <aside className='sm:flex sm:gap-[10px]  sm:max-h-[176px] md:flex-col  md:mx-0 md:max-w-[255px]'>
       <div className='bg-hero-mobile bg-center bg-cover bg-no-repeat px-6 py-4 text-white flex justify-between items-center sm:bg-hero-tablet sm:items-end sm:flex-1 sm:rounded-[10px] md:bg-hero-desktop'>
         <div className='sm:text-left md:pt-[62px]'>
           <h2 className='h4 sm:h2'>Frontend Mentor</h2>
