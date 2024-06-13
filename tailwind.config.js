@@ -1,38 +1,65 @@
+/* eslint-disable no-undef */
+
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+import tailwindcssAnimate from 'tailwindcss-animate';
+
+module.exports = {
+  darkMode: ['class'],
+  content: [
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
+  ],
+  prefix: '',
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
-      fontFamily: {
-        jost: ['Jost', 'sans-serif'],
+      backgroundImage: {
+        'hero-mobile':
+          'url(./src/assets/suggestions/mobile/background-header.png)',
+        'hero-tablet':
+          'url(./src/assets/suggestions/tablet/background-header.png)',
+        'hero-desktop':
+          'url(./src/assets/suggestions/desktop/background-header.png)',
       },
       colors: {
         purple: '#AD1FEA',
         blue: '#4661E6',
-        orange: '#f49f85',
-        'light-blue': '#62bcfa',
-        navy: '#3a4374',
+        navy: '#3A4374',
+        backgroundColor: '#F2F4FF',
         gray: '#647196',
-        'off-white': '#f2f4ff',
-        'bg-color': '#f7f8fd',
-        red: '#d73737',
-        'red-hover': '#e98888',
-        'blue-hover': '#7C91F9',
-        'purple-hover': '#C75AF6',
-        'navy-hover': '#656EA3',
+        orange: '#F49F85',
+        lightBlue: '#62BCFA',
+        offWhite: '#F7F8FD',
+        purpleHover: '#C75AF6',
+        blueHover: '#7C91F9',
+        navyHover: '#656EA3',
       },
-      backgroundImage: {
-        'hero-desktop':
-          "url('./src/assets/suggestions/desktop/background-header.png')",
-        'hero-tablet':
-          "url('./src/assets/suggestions/tablet/background-header.png')",
-        'hero-mobile':
-          "url('./src/assets/suggestions/mobile/background-header.png')",
+      fontFamily: {
+        jost: ['Jost', 'sans-serif'],
       },
-      screens: {
-        md: '840px',
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 };

@@ -1,41 +1,23 @@
-import FeedbackItem from '../components/FeedbackItem';
-import Header from '../layouts/Header';
-import Sidebar from '../layouts/Sidebar';
-import Modal from '../layouts/Modal';
-import data from '../data/data.json';
-
+import { useState } from 'react';
+import Header from '@/layouts/Header';
+import Sidebar from '@/layouts/Sidebar';
+import Modal from '@/layouts/Modal';
+import FeedbackItem from '@/components/common/FeedbackItem';
 const Home = () => {
-  const isOpen = false;
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className='md:flex md:gap-[30px]'>
+    <div className='flex flex-col max-w-[1440px] h-full mx-auto sm:gap-10 sm:pt-14 sm:px-10 lg:flex-row lg:gap-[30px] lg:px-[100px] xl:px-[165px] lg:pt-[94px]'>
       <Sidebar />
-      {isOpen && <Modal />}
-      <div className='md:w-full'>
-        <Header />
-        <main className='mx-6 mt-8 mb-2 flex flex-col gap-4 sm:mx-0 md:mx-0 md:mt-6'>
-          {data.productRequests.map((item, index) => {
-            const commentsCount = item.comments ? item.comments.length : 0;
-            const repliesCount = item.comments
-              ? item.comments.reduce((count, comment) => {
-                  return count + (comment.replies ? comment.replies.length : 0);
-                }, 0)
-              : 0;
-            const totalComments = commentsCount + repliesCount;
-
-            return (
-              <FeedbackItem
-                key={index}
-                title={item.title}
-                description={item.description}
-                category={item.category}
-                upvotes={item.upvotes}
-                comments={totalComments}
-              />
-            );
-          })}
-        </main>
-      </div>
+      {isMenuOpen && (
+        <div className='relative h-full'>
+          <Modal />
+          <Header />
+        </div>
+      )}
+      {!isMenuOpen && <Header />}
+      <main className='w-full px-6 pt-8 sm:px-0 sm:pt-6'>
+        <FeedbackItem />
+      </main>
     </div>
   );
 };

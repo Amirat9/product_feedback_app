@@ -6,28 +6,29 @@
 
 @layer base {
   body {
-    @apply font-jost bg-bg-color h-screen text-navy;
+    @apply h-screen w-screen font-jost bg-backgroundColor;
   }
 }
 
 @layer components {
   .h1 {
-    @apply text-2xl font-bold leading-[35px] tracking-[-0.33px];
+    @apply font-bold text-2xl leading-[35px] tracking-[-0.33px];
   }
 
   .h2 {
-    @apply text-xl font-bold leading-[29px] tracking-[-0.25px];
+    @apply font-bold text-xl leading-[29px] tracking-[-0.25px];
   }
 
   .h3 {
-    @apply text-lg font-bold leading-[26px] tracking-[-0.25px];
+    @apply font-bold text-lg leading-[26px] tracking-[-0.25px];
   }
 
   .h4 {
-    @apply text-sm font-bold leading-[20px] tracking-[-0.2px];
+    @apply font-bold text-sm leading-5 tracking-[-0.2px];
   }
+
   .body-1 {
-    @apply text-base leading-[23px];
+    @apply leading-[23px];
   }
 
   .body-2 {
@@ -35,6 +36,11 @@
   }
 
   .body-3 {
-    @apply text-[13px] leading-[19px] font-semibold;
+    @apply text-[13px] font-semibold leading-[19px];
   }
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
 }

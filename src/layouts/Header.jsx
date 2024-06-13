@@ -1,25 +1,97 @@
-import suggestionsIcon from '../assets/suggestions/icon-suggestions.svg';
-import FilterDropdown from '../components/FilterDropdown';
+import { useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '../components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import suggestionsIcon from '../assets/suggestions/icon-suggestions.svg';
+import iconCheck from '../assets/shared/icon-check.svg';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa6';
+
 const Header = () => {
+  const filters = [
+    'Most Comments',
+    'Least Comments',
+    'Most Upvotes',
+    'Least Upvotes',
+  ];
+  const [filter, setFilter] = useState('Most Comments');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleFilterChange = (filterItem) => {
+    setFilter(filterItem);
+    setIsMenuOpen(false); // Close the menu after selecting a filter
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
-    <header className='bg-navy flex justify-between items-center px-6 py-2 sm:mt-10  sm:rounded-[10px] sm:px-3 sm:justify-normal md:mx-0 md:mt-0'>
-      <div className='hidden sm:flex sm:items-center'>
-        <img
-          src={suggestionsIcon}
-          alt='suggestions icon'
-        />
-        <h2 className='text-white font-bold text-[13px] ml-4 mr-[38px]'>
-          6 Suggestions
-        </h2>
+    <header className='bg-navy px-6 py-2 sm:px-3 sm:py-[14px] sm:rounded-[10px] lg:w-full lg:max-h-[72px]'>
+      <div className='flex items-center'>
+        <div className='hidden items-center justify-center gap-4 text-white mr-[38px] sm:flex'>
+          <img
+            src={suggestionsIcon}
+            alt='Suggestions Icon'
+          />
+          <h3 className='h3'>6 Suggestions</h3>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            className='text-[13px] font-bold text-[#F2F4FE] sm:text-sm sm:flex-none'
+            onClick={toggleMenu}
+          >
+            <div className='flex items-center gap-2'>
+              <span className='font-normal'>sort by : </span>
+              {` ${filter}`}
+              {isMenuOpen ? (
+                <FaAngleUp className='block' />
+              ) : (
+                <FaAngleDown className='block' />
+              )}
+            </div>
+          </DropdownMenuTrigger>
+          {isMenuOpen && (
+            <DropdownMenuContent
+              onInteractOutside={() => setIsMenuOpen(!isMenuOpen)}
+              align='start'
+              className='mt-4'
+            >
+              {filters.map((filterItem, index) => (
+                <DropdownMenuItem
+                  key={index}
+                  onClick={() => handleFilterChange(filterItem)}
+                  className={
+                    'text-gray cursor-pointer hover:text-purple hover:bg-none'
+                  }
+                >
+                  <div
+                    className={`flex items-center justify-between w-full px-6 py-3 gap-10 ${
+                      index != 0 ? 'border-t border-[#979797]/35' : ''
+                    }`}
+                  >
+                    {filterItem}
+                    {filterItem === filter && (
+                      <img
+                        src={iconCheck}
+                        alt='Check Icon'
+                        className='block'
+                      />
+                    )}
+                  </div>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          )}
+        </DropdownMenu>
+        <Button className='bg-purple ml-auto rounded-[10px] sm:px-6 hover:bg-purpleHover'>
+          <Link>+ Add Feedback</Link>
+        </Button>
       </div>
-      <FilterDropdown />
-      <Link
-        to='/new-feedback'
-        className='bg-purple border-0 text-white px-4 py-[10.5px] rounded-[10px] text-[13px] font-bold hover:bg-purple-hover sm:ml-auto'
-      >
-        + Add Feedback
-      </Link>
     </header>
   );
 };
