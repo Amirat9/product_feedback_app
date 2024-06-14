@@ -66,7 +66,7 @@ const Header = () => {
                   key={index}
                   onClick={() => handleFilterChange(filterItem)}
                   className={
-                    'text-gray cursor-pointer hover:text-purple hover:bg-none'
+                    'text-gray cursor-pointer hover:text-purple hover:bg-none focus:bg-transparent focus:text-purple'
                   }
                 >
                   <div
@@ -89,7 +89,7 @@ const Header = () => {
           )}
         </DropdownMenu>
         <Button className='bg-purple ml-auto rounded-[10px] sm:px-6 hover:bg-purpleHover'>
-          <Link>+ Add Feedback</Link>
+          <Link to='/new-feedback'>+ Add Feedback</Link>
         </Button>
       </div>
     </header>

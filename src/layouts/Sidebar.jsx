@@ -13,7 +13,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className='sm:flex sm:items-center h-fit sm:gap-[10px] lg:max-w-[255px] lg:flex-col'>
+    <aside className='sm:flex sm:items-center h-fit sm:gap-[10px] lg:gap-6 lg:max-w-[255px] lg:flex-col'>
       <div className='flex items-center justify-between bg-purple px-6 py-4 bg-hero-mobile bg-cover bg-center bg-no-repeat sm:bg-hero-tablet sm:pl-6 sm:pb-6 sm:rounded-[10px] sm:h-full sm:flex-1 sm:items-end lg:w-full lg:pt-[62px] lg:bg-hero-desktop'>
         <div>
           <h2 className='text-white text-[15px] font-bold tracking-[-0.19px] sm:h2'>

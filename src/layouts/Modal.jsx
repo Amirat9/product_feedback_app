@@ -1,4 +1,4 @@
-import Category from '@/components/ui/Category';
+import Category from '@/components/ui/CategoryFilter';
 import { Link } from 'react-router-dom';
 const Modal = () => {
   const statuses = [

@@ -1,4 +1,4 @@
-import Category from '@/components/ui/Category';
+import Category from '@/components/ui/CategoryFilter';
 const CategoryCard = () => {
   const categories = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
   return (
